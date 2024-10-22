@@ -1,6 +1,8 @@
-var express = require("express");
-var router = express.Router();
+let express = require("express");
+const { isUser } = require("../controllers");
+let router = express.Router();
 
+router.get("/:email", isUser);
 /* GET home page. */
 router.get("/", function (req, res, next) {
   //res.render('index', { title: 'Express' });
