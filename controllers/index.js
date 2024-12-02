@@ -1,3 +1,4 @@
+/*
 const User = require("../models/User");
 
 const isUser = async (req, res) => {
@@ -20,3 +21,4 @@ const isUser = async (req, res) => {
 };
 
 module.exports = { isUser };
+*/

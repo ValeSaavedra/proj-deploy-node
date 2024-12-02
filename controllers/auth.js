@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const { createToken } = require("../services/auth");
 const { hash, unhash } = require("../utils/bcrypt");
 
 const auth = async (req, res) => {
@@ -11,6 +12,16 @@ const auth = async (req, res) => {
         .status(401)
         .json({ message: "Usuario o contraseña incorrecto/a" });
     console.log(user);
+    const jwtObject = {
+      _id: user._id,
+      name: user.name,
+    };
+    const JWT = createToken(jwtObject);
+    console.log(
+      `el jwtObject viene con el id ${jwtObject._id} y el name ${jwtObject.name}`
+    );
+    console.log(`el JWT entero es ${JWT}`);
+    res.cookie("jwt", JWT);
     res.json({ message: `Bienvenido/a ${user.name}` });
   } catch (e) {
     console.error(e);
