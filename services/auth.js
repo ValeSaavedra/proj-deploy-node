@@ -1,8 +1,19 @@
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
-
-const privateKey = fs.readFileSync("./keys/private.pem");
+/*
+process.env.WHE === "DEV"  
+? let privateKey = fs.readFileSync("./keys/private.pem") 
+: let privateKey = fs.readFileSync("/etc/secrets/private.pem");
+*/
+const privateKey = fs.readFileSync("./private.pem");
 const publicKey = fs.readFileSync("./keys/public.pem");
+/*
+if (process.env.WHE === "DEV") {
+  let privateKey = fs.readFileSync("./keys/private.pem");
+} else {
+  let privateKey = fs.readFileSync("/etc/secrets/private.pem");
+}
+  */
 
 //const signOptions = { expiresIn: "1h", algorithm: "RS256" };
 const signOptions = {
