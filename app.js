@@ -14,6 +14,7 @@ const usersRouter = require("./routes/users");
 const auth = require("./routes/auth");
 const panel = require("./routes/panel");
 const infocolo = require("./routes/infocolo");
+const cards = require("./routes/cards");
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use("/users", usersRouter);
 app.use("/auth", auth);
 app.use("/panel", panel);
 app.use("/infocolo", infocolo);
+app.use("/cards", cards);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
