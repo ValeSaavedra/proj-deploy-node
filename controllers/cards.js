@@ -6,7 +6,8 @@ const create = async (req, res) => {
   try {
     const card = new Card(req.body);
     await card.save();
-    res.sendStatus(201);
+    res.status(201).json({ ok: true });
+    //res.sendStatus(201);
     console.log(card);
   } catch (e) {
     console.error(e);
